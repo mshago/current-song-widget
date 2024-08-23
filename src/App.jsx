@@ -29,13 +29,9 @@ function App() {
   if (data === null) {
     return <div>Loading...</div>;
   }
-
   const {
     recenttracks: { track },
   } = data;
-
-  console.log(data);
-
   const artist = track[0].artist['#text'];
   const song = track[0].name;
   const image =
