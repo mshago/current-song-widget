@@ -34,10 +34,8 @@ body {
 }
 
 .infoContainer {
-  background-color: var(--bg-color);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-left: none;
   z-index: -2;
 }
 
@@ -49,9 +47,6 @@ body {
   align-items: start;
   justify-content: center;
   position: relative;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: rgba(28, 28, 32, 0.2) 0px 7px 29px 0px;
 }
 
 .songBackground::before {
@@ -63,7 +58,11 @@ body {
   height: 100%;
   background-image: var(--dynamic-image-url);
   background-size: 150%;
-  background-position-y: 60%;
+  background-position-y: 35%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left-color: #000;
+  box-shadow: rgba(0, 0, 0, 1) 0px 7px 29px 0px;
   filter: blur(2px);
   z-index: -1;
 }
