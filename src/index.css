@@ -34,7 +34,7 @@ body {
 }
 
 .infoContainer {
-  background-color: #f0f0f0;
+  background-color: var(--bg-color);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   border-left: none;
@@ -49,6 +49,7 @@ body {
   align-items: start;
   justify-content: center;
   position: relative;
+  border-top-right-radius: 10px;
   box-shadow: rgba(28, 28, 32, 0.2) 0px 7px 29px 0px;
 }
 
@@ -85,4 +86,35 @@ h3 {
   margin: 0;
   z-index: 1;
   color: var(--text-color);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(
+      0%
+    ); /* Stay in the initial position for 10% of the duration */
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-container {
+  width: 100%; /* Visible area width */
+  overflow: hidden; /* Hide overflow */
+  white-space: nowrap; /* Prevent text from wrapping */
+  position: relative;
+}
+
+.scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+  transition: transform 0.5s ease-in-out;
+}
+
+.scrolling {
+  animation: scroll 15s linear infinite; /* Adjust duration as needed */
 }

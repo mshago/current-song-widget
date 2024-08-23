@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import ScrollableText from './components/ScrollableText';
 
 const api_key = import.meta.env.VITE_API_KEY;
 const user = import.meta.env.VITE_USER;
@@ -39,12 +40,17 @@ function App() {
       ? track[0].image[2]['#text']
       : NO_ARTWORK_URL;
 
+  const noArtwork = image === NO_ARTWORK_URL;
+
   return (
     <div className="container">
       <div className="imageContainer">
         <img src={image} alt={song} className="image" />
       </div>
-      <div className="infoContainer">
+      <div
+        className="infoContainer"
+        style={{ '--bg-color': noArtwork ? '#fff' : '#000' }}
+      >
         <div
           className="songBackground"
           style={{ '--dynamic-image-url': `url(${image})` }}
@@ -52,14 +58,14 @@ function App() {
           <div
             className="songInfo"
             style={{
-              '--text-color': image === NO_ARTWORK_URL ? '#000' : '#fff',
+              '--text-color': noArtwork ? '#000' : '#fff',
               textShadow:
                 image === NO_ARTWORK_URL
                   ? 'none'
                   : '0px 0px 3px rgba(0, 0, 0, 0.5)',
             }}
           >
-            <h1>{song}</h1>
+            <ScrollableText text={song} />
             <h3>{artist}</h3>
           </div>
         </div>
