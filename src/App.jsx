@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ScrollableText from './components/ScrollableText';
 
 const api_key = import.meta.env.VITE_API_KEY;
 const user = import.meta.env.VITE_USER;
-console.log('api_key', api_key, import.meta.env);
 const URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${api_key}&format=json`;
 const FREE_IMAGE_URL =
   'https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png';

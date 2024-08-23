@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
+// eslint-disable-next-line react/prop-types
 const ScrollableText = ({ text }) => {
   const [isOverflowing, setIsOverflowing] = useState(false);
   const textRef = useRef(null);
@@ -7,13 +8,6 @@ const ScrollableText = ({ text }) => {
   useEffect(() => {
     const textElement = textRef.current;
 
-    console.log(
-      textElement.scrollWidth,
-      textElement.clientWidth,
-      'textElement',
-    );
-
-    // Check if the text overflows its container
     if (textElement.scrollWidth > 400) {
       setIsOverflowing(true);
     } else {
