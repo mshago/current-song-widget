@@ -42,4 +42,4 @@ The widget will display the current/last song played by the specified user on La
 
 Here is a screenshot of the widget in action:
 
-![Widget Screenshot](current-song-widget.png)
+![Widget Screenshot](/public/current-song-widget.png)
