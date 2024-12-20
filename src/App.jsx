@@ -4,7 +4,14 @@ import ScrollableText from './components/ScrollableText';
 function App() {
   const [data, setData] = useState(null);
   const api_key = import.meta.env.VITE_API_KEY;
-  const user = import.meta.env.VITE_USER;
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  let user = import.meta.env.VITE_USER;
+
+  if (urlParams.has('username')) {
+    user = urlParams.get('username');
+  }
+
   const URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${api_key}&format=json`;
   const NO_ARTWORK_URL = 'no-artwork.png';
 
@@ -35,27 +42,30 @@ function App() {
     return <div>Loading...</div>;
   }
 
-  const noArtwork = data.image === NO_ARTWORK_URL;
   const { image, song, artist } = data;
+  const noArtwork = image === NO_ARTWORK_URL || image === '' || data === null;
 
   return (
     <div className="container">
       <div className="imageContainer">
-        <img src={image} alt={song} className="image" />
+        <img
+          src={noArtwork ? NO_ARTWORK_URL : image}
+          alt="No artwork"
+          className="image"
+        />
       </div>
       <div className="infoContainer">
         <div
           className="songBackground"
-          style={{ '--dynamic-image-url': `url(${image})` }}
+          style={{
+            '--dynamic-image-url': `url(${noArtwork ? NO_ARTWORK_URL : image})`,
+          }}
         >
           <div
             className="songInfo"
             style={{
               '--text-color': noArtwork ? '#000' : '#fff',
-              textShadow:
-                image === NO_ARTWORK_URL
-                  ? 'none'
-                  : '0px 0px 3px rgba(0, 0, 0, 0.5)',
+              textShadow: noArtwork ? 'none' : '0px 0px 3px rgba(0, 0, 0, 0.5)',
             }}
           >
             <ScrollableText text={song} />
