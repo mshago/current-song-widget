@@ -22,14 +22,12 @@ const Vinyl = ({ noArtwork, image }) => {
     );
   }
 
-  console.log(palette);
-
   return (
     <div
       className="imageContainer"
       style={{
-        backgroundColor: palette?.Vibrant?.hex,
-        boxShadow: `${palette?.Vibrant?.hex} 0px 5px 15px`,
+        backgroundColor: palette?.DarkMuted?.hex,
+        boxShadow: `${palette?.DarkMuted?.hex} 0px 5px 15px`,
       }}
     >
       <img

@@ -131,4 +131,13 @@ h3 {
   .imageContainer {
     display: none;
   }
+
+  .infoContainer {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .songBackground {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
