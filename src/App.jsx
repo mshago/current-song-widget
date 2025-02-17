@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ScrollableText from './components/ScrollableText';
+import Vinyl from './components/Vinyl';
+import { NO_ARTWORK_URL } from './constants';
 
 function App() {
   const [data, setData] = useState(null);
@@ -13,7 +15,6 @@ function App() {
   }
 
   const URL = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${api_key}&format=json`;
-  const NO_ARTWORK_URL = 'no-artwork.png';
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -47,13 +48,7 @@ function App() {
 
   return (
     <div className="container">
-      <div className="imageContainer">
-        <img
-          src={noArtwork ? NO_ARTWORK_URL : image}
-          alt="No artwork"
-          className="image"
-        />
-      </div>
+      <Vinyl noArtwork={noArtwork} image={image} />
       <div className="infoContainer">
         <div
           className="songBackground"

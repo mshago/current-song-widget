@@ -8,7 +8,7 @@ const ScrollableText = ({ text }) => {
   useEffect(() => {
     const textElement = textRef.current;
 
-    if (textElement.scrollWidth > 400) {
+    if (textElement.scrollWidth > 299) {
       setIsOverflowing(true);
     } else {
       setIsOverflowing(false);
